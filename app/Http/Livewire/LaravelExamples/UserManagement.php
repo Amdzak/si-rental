@@ -8,6 +8,6 @@ class UserManagement extends Component
 {
     public function render()
     {
-        return view('livewire.laravel-examples.user-management');
+        return view('livewire.user');
     }
 }
