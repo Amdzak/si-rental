@@ -12,7 +12,7 @@ class Login extends Component
     public $remember_me = false;
 
     protected $rules = [
-        'email' => 'required|email:rfc,dns',
+        'email' => 'required',
         'password' => 'required',
     ];
 
@@ -25,13 +25,13 @@ class Login extends Component
 
     public function login() {
         $credentials = $this->validate();
-        if(auth()->attempt(['email' => $this->email, 'password' => $this->password], $this->remember_me)) {
-            $user = User::where(["email" => $this->email])->first();
+        if(auth()->attempt(['username' => $this->email, 'password' => $this->password], $this->remember_me)) {
+            $user = User::where(["username" => $this->email])->first();
             auth()->login($user, $this->remember_me);
             return redirect()->intended('/dashboard');        
         }
         else{
-            return $this->addError('email', trans('auth.failed')); 
+            return $this->addError('username', trans('auth.failed')); 
         }
     }
 

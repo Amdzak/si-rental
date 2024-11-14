@@ -10,10 +10,10 @@
                         <div class="card-body">
                             <form wire:submit="login" action="#" method="POST" role="form text-left">
                                 <div class="mb-3">
-                                    <label for="email">{{ __('Email') }}</label>
+                                    <label for="email">{{ __('Username') }}</label>
                                     <div class="@error('email')border border-danger rounded-3 @enderror">
-                                        <input wire:model.live="email" id="email" type="email"
-                                            class="form-control" placeholder="Email" aria-label="Email"
+                                        <input wire:model.live="email" id="email" type="text"
+                                            class="form-control" placeholder="Username" aria-label="Email"
                                             aria-describedby="email-addon">
                                     </div>
                                     @error('email')
